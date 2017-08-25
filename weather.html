@@ -16,14 +16,13 @@
 				var cityurl = "http://api.openweathermap.org/data/2.5/weather?q=" + usercity + "&APPID=5d7dfcea826fb5dcdb0de02038ff7040";
 				$.get(cityurl,function(data){
 					console.log(data);
-					$(this).siblings().children("#temperature").html(usercity)
 				//After the console log for developer troubleshooting above, this function will insert HTML and data from the API to the <div> which is the sibling of <form> in the html body structure.
+					// $(this).siblings().html();
 				},"json");
+				return false
 			});
 
 
-
-	// $(this).siblings().children("#temperature").append(usercity)
 		});
 	</script>
 
@@ -33,7 +32,6 @@
 		<input type="text" id="city">
 		<input type="submit" id="submit">
 	</form>
-	<div>
-	</div>
+	<div></div>
 </body>
 </html>
