@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		Weather Forecast App
+	</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+	//DOCUMENT READY
+		$(document).ready(function(){
+			var usercity = $("#city").val();
+			var clearit = $(this).children("input");
+
+			//Declaring submit function, to do when user has submitted information.
+			$("form").submit(function(){
+				//Declaring the get function upon submission of user data, where the function will retrieve the API data from WeatherMap.org specific to the user's city request.
+				$.get("http://api.openweathermap.org/data/2.5/weather?q=" + usercity + "&APPID=5d7dfcea826fb5dcdb0de02038ff7040",function(weatherdata){
+					console.log(weatherdata);
+				//After the console log for developer troubleshooting above, this function will insert HTML and data from the API to the <div> which is the sibling of <form> in the html body structure.
+				// $(this).siblings().append(""); //insert data into this parentheses here!
+				},"json");
+			});
+
+
+
+	// $(this).siblings().children("#temperature").append(usercity)
+		});
+	</script>
+
+</head>
+<body>
+	<form>
+		<input type="text" id="city">
+		<input type="submit" id="submit">
+	</form>
+	<div>
+		<h1 id = "city"></h1>
+		<h3 id = "temperature"></h5>
+	</div>
+</body>
+</html>
