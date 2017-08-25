@@ -11,13 +11,18 @@
 			//Declaring submit function, to do when user has submitted information.
 			$("form").submit(function(){
 				//Declaring the get function upon submission of user data, where the function will retrieve the API data from WeatherMap.org specific to the user's city request.
-				var usercity = $("#city").val();
+				var cidade = $("#city").val();
 				// var clearit = $(this).children("input");
-				var cityurl = "http://api.openweathermap.org/data/2.5/weather?q=" + usercity + "&APPID=5d7dfcea826fb5dcdb0de02038ff7040";
-				$.get(cityurl,function(data){
+				var cidadeurl = "http://api.openweathermap.org/data/2.5/weather?q=" + cidade + "&APPID=5d7dfcea826fb5dcdb0de02038ff7040";
+				$.get(cidadeurl,function(data){
 					console.log(data);
-				//After the console log for developer troubleshooting above, this function will insert HTML and data from the API to the <div> which is the sibling of <form> in the html body structure.
-					// $(this).siblings().html();
+				//Creating a variable to contain the temperature in Kelvin.
+				var temperatura = data.main.temp;
+				//Creating a variable to contain the equation for Fahrenheit to Kelvin
+				var fpraKelvin = 9/5 * (temperatura-273) + 32;
+				console.log(fpraKelvin);
+				//Finally, getting the siblings of #form(this), and editing it's html.
+				$("div").html("<h1>"+data.name+"</h1>");
 				},"json");
 				return false
 			});
