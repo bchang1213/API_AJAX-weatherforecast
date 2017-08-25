@@ -2,8 +2,19 @@
 	margin: 0px;
 	padding: 0px;
 }
+body{
+	width: 700px;
+}
 
 form{
 	margin-left: 60px;
 	margin-top: 200px;
+}
+
+div,form{
+	display: inline-block;
+}
+
+div{
+	margin-left: 100px;
 }

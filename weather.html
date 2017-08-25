@@ -19,10 +19,10 @@
 				//Creating a variable to contain the temperature in Kelvin.
 				var temperatura = data.main.temp;
 				//Creating a variable to contain the equation for Fahrenheit to Kelvin
-				var fpraKelvin = 9/5 * (temperatura-273) + 32;
+				var fpraKelvin = Math.trunc(9/5 * (temperatura-273) + 32);
 				console.log(fpraKelvin);
 				//Finally, getting the siblings of #form(this), and editing it's html.
-				$("div").html("<h1>"+data.name+"</h1>");
+				$("div").html("<h1>"+data.name+"</h1>"+"<h4>It is </h4><h3>"+fpraKelvin+" degrees Fahrenheit.</h3>");
 				},"json");
 				return false
 			});
